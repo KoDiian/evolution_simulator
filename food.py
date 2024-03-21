@@ -14,9 +14,7 @@ class Food:
         self.x_pos_select = x[self.x_pos_rand]
         self.y_pos_select = y[self.y_pos_rand]
 
-        if (self.x_pos_select, self.y_pos_select) in food_in_map:
-            food_in_map.remove((self.x_pos_select, self.y_pos_select))
-        else:
+        if (self.x_pos_select, self.y_pos_select) not in food_in_map:
             pygame.draw.rect(screen, (0, 255, 0), (self.x_pos_select, self.y_pos_select, tilesize, tilesize))
             food_in_map.append((self.x_pos_select, self.y_pos_select))
         
