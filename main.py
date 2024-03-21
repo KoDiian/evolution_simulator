@@ -54,10 +54,9 @@ while running:
             if event.key == pygame.K_ESCAPE:
                 running = False
 
-    # Effacer l'écran
-    screen.fill(color["background_color"])
 
-    # Dessiner la nourriture
+    screen.fill(color["background_color"])
+    
     nourriture.draw(screen, tilesize, nbr_max_x, nbr_max_y, x, y, food_in_map)
 
     # Déplacez et dessinez chaque bactérie
