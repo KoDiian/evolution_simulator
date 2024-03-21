@@ -37,6 +37,4 @@ class Bacterie:
         return new_genes
 
     def draw(self, surface):
-        pygame.draw.rect(surface, self.color, (self.x * self.cellsize - 2 * self.cellsize,
-                                               self.y * self.cellsize - 2 * self.cellsize,
-                                               self.cellsize, self.cellsize))
+        pygame.draw.rect(surface, self.color, (self.x, self.y, self.cellsize, self.cellsize))
