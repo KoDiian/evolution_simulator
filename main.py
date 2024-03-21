@@ -2,6 +2,7 @@ import pygame
 from food import Food
 from bacterie import Bacterie
 import random
+import matplotlib.pyplot as plt
 
 pygame.init()
 
@@ -54,6 +55,11 @@ for _ in range(5):
 
 screen.fill(color["background_color"])
 
+plt.title('Exemple de graphique à barres')
+plt.xlabel('Catégories')
+plt.ylabel('Valeurs')
+
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -61,6 +67,10 @@ while running:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 running = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_g:
+                    plt.show()
+
 
     
 
@@ -94,6 +104,15 @@ while running:
     nbr_bacteries = len(bacteries)
     #print(nbr_bacteries)
 
+    plt.bar(5, nbr_bacteries)
+
+
+
+    
+
     pygame.display.flip()
     dt = clock.tick(fps)
+
+
+
 pygame.quit()
