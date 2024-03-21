@@ -92,7 +92,7 @@ while running:
           
             
     nbr_bacteries = len(bacteries)
-    print(nbr_bacteries)
+    #print(nbr_bacteries)
 
     pygame.display.flip()
     dt = clock.tick(fps)
