@@ -58,23 +58,29 @@ while running:
             if event.key == pygame.K_ESCAPE:
                 running = False
 
+
+    screen.fill(color["background_color"])
+    
     
     nourriture.draw(screen, tilesize, nbr_max_x, nbr_max_y, x, y, food_in_map)
-    
 
     # Déplacez et dessinez chaque bactérie
     for bacterie in bacteries:
         bacterie.draw(screen)
         nx = bacterie.x + random.choice([-1, 0, 1])
         ny = bacterie.y + random.choice([-1, 0, 1])
+        if bacterie.energy <= 0:
+            bacteries.remove(bacterie)
         if 0 <= nx < nbr_max_x and 0 <= ny < nbr_max_y:
             bacterie.move(nx, ny, 1)
             if (nx, ny) in food_in_map:
                 bacterie.eat(50)
                 food_in_map.remove((nx, ny))
-            if bacterie.energy > 1000:
+            if bacterie.energy > 700:
                 new_bacterie = bacterie.reproduce()
                 bacteries.append(new_bacterie)
+
+
 
     pygame.display.flip()
     dt = clock.tick(fps)
