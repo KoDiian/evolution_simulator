@@ -60,5 +60,5 @@ while running:
     
     pygame.display.flip()
     dt = clock.tick(fps)
-print(test)
+print(food_in_map)
 pygame.quit()
