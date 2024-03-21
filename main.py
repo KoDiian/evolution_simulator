@@ -1,6 +1,7 @@
 import pygame
 from food import Food
 import random
+from bacterie import Bacteries
 
 pygame.init()
 
@@ -39,6 +40,11 @@ for i in range(int(nbr_max_y)):
     y.append(int(i*tilesize))
 
 food_in_map = []
+
+bacterie = Bacteries()
+bacterie_in_map=[]
+for i in range(5):
+    bacterie.draw(screen, tilesize, nbr_max_x, nbr_max_y, x, y)
 
 while running:
     for event in pygame.event.get():
