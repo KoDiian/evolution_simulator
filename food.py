@@ -8,10 +8,15 @@ class Food:
         self.x_pos_select = 0
         self.y_pos_select = 0
 
-    def draw(self, screen, tilesize, nbr_max_x, nbr_max_y, x, y):
+    def draw(self, screen, tilesize, nbr_max_x, nbr_max_y, x, y, food_in_map):
         self.x_pos_rand = random.randint(0, (nbr_max_x - 1))
         self.y_pos_rand = random.randint(0, (nbr_max_y - 1))
         self.x_pos_select = x[self.x_pos_rand]
         self.y_pos_select = y[self.y_pos_rand]
+
+        if (self.x_pos_select, self.y_pos_select) in food_in_map:
+            food_in_map.remove((self.x_pos_select, self.y_pos_select))
+        else:
+            pygame.draw.rect(screen, (0, 255, 0), (self.x_pos_select, self.y_pos_select, tilesize, tilesize))
+            food_in_map.append((self.x_pos_select, self.y_pos_select))
         
-        pygame.draw.rect(screen, (0, 255, 0), (self.x_pos_select, self.y_pos_select, tilesize, tilesize))

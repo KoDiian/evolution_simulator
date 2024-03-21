@@ -38,6 +38,7 @@ for i in range(int(nbr_max_x)):
 for i in range(int(nbr_max_y)):
     y.append(int(i*tilesize))
 
+food_in_map = []
 
 while running:
     for event in pygame.event.get():
@@ -50,11 +51,14 @@ while running:
 
 
 
-    nourriture.draw(screen, tilesize, nbr_max_x, nbr_max_y, x, y)
+    nourriture.draw(screen, tilesize, nbr_max_x, nbr_max_y, x, y, food_in_map)
+    
+
     
 
 
     
     pygame.display.flip()
     dt = clock.tick(fps)
+print(test)
 pygame.quit()
