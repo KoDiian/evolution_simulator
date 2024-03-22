@@ -37,7 +37,9 @@ food_in_map = []
 # Liste pour stocker les bactéries
 bacteries = []
 
-nbr_bacteries = 0
+nbr_bacteries = []
+nbr_iteration = []
+nbr_iteration_chiffre = 0
 
 # Initialisation de quelques bactéries au début du programme
 for _ in range(5):
@@ -55,9 +57,9 @@ for _ in range(5):
 
 screen.fill(color["background_color"])
 
-plt.title('Exemple de graphique à barres')
-plt.xlabel('Catégories')
-plt.ylabel('Valeurs')
+plt.title('Bacteries en fonction du temps')
+plt.xlabel('Nombre de répition de la boucle while')
+plt.ylabel('Nombre de bacterie')
 
 
 while running:
@@ -70,6 +72,7 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_g:
                     plt.show()
+                    plt.grid(True)
 
 
     
@@ -90,7 +93,6 @@ while running:
                 pygame.draw.rect(screen, (0,0,0), (bacterie.x, bacterie.y, tilesize, tilesize))
                 
                 bacterie.move(nx, ny, 1)
-                #print(bacterie.energy)
                 if (nx, ny) in food_in_map:
                     bacterie.eat(20)
                     food_in_map.remove((nx, ny))
@@ -101,10 +103,11 @@ while running:
             bacterie.draw(screen)
           
             
-    nbr_bacteries = len(bacteries)
-    #print(nbr_bacteries)
+    nbr_bacteries.append(len(bacteries))
+    nbr_iteration_chiffre +=1
+    nbr_iteration.append(nbr_iteration_chiffre)
 
-    plt.bar(5, nbr_bacteries)
+    plt.plot(nbr_iteration, nbr_bacteries, marker='o', linestyle='-')
 
 
 
