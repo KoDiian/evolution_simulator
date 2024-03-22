@@ -40,6 +40,7 @@ bacteries = []
 nbr_bacteries = []
 nbr_iteration = []
 nbr_iteration_chiffre = 0
+nbr_food = []
 
 # Initialisation de quelques bactéries au début du programme
 for _ in range(5):
@@ -57,9 +58,7 @@ for _ in range(5):
 
 screen.fill(color["background_color"])
 
-plt.title('Bacteries en fonction du temps')
-plt.xlabel('Nombre de répition de la boucle while')
-plt.ylabel('Nombre de bacterie')
+
 
 
 while running:
@@ -72,7 +71,7 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_g:
                     plt.show()
-                    plt.grid(True)
+                    
 
 
     
@@ -106,9 +105,22 @@ while running:
     nbr_bacteries.append(len(bacteries))
     nbr_iteration_chiffre +=1
     nbr_iteration.append(nbr_iteration_chiffre)
-
+    nbr_food.append(len(food_in_map))
+    
+    plt.grid(True)
+    plt.title('Bacterie en fonction du temps')
+    plt.xlabel('Nombre de répition de la boucle while')
+    plt.ylabel('Nombre de bacterie')
+    plt.figure("Bacterie")
     plt.plot(nbr_iteration, nbr_bacteries, marker='o', linestyle='-')
 
+    plt.grid(True)
+    plt.title('Nourriture en fonction du temps')
+    plt.ylabel('Nombre de nourriture')
+    plt.figure("Nourriture")
+    plt.plot(nbr_iteration, nbr_food, marker='o', linestyle='-')
+
+  
 
 
     
