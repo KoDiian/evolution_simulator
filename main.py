@@ -70,6 +70,20 @@ while running:
                 running = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_g:
+                    plt.grid(True)
+                    plt.figure("Bacterie")
+                    plt.title('Bacterie en fonction du temps')
+                    plt.xlabel('Nombre de répition de la boucle while')
+                    plt.ylabel('Nombre de bacterie')
+                    plt.plot(nbr_iteration, nbr_bacteries, marker='o', linestyle='-')
+
+                    plt.grid(True)
+                    plt.figure("Nourriture")
+                    plt.title('Nourriture en fonction du temps')
+                    plt.ylabel('Nombre de nourriture')
+                    plt.plot(nbr_iteration, nbr_food, marker='o', linestyle='-')
+                    plt.grid(True)
+
                     plt.show()
                     
 
@@ -107,21 +121,10 @@ while running:
     nbr_iteration.append(nbr_iteration_chiffre)
     nbr_food.append(len(food_in_map))
     
-    plt.grid(True)
-    plt.title('Bacterie en fonction du temps')
-    plt.xlabel('Nombre de répition de la boucle while')
-    plt.ylabel('Nombre de bacterie')
-    plt.figure("Bacterie")
-    plt.plot(nbr_iteration, nbr_bacteries, marker='o', linestyle='-')
-
-    plt.grid(True)
-    plt.title('Nourriture en fonction du temps')
-    plt.ylabel('Nombre de nourriture')
-    plt.figure("Nourriture")
-    plt.plot(nbr_iteration, nbr_food, marker='o', linestyle='-')
+    
 
   
-
+    print(nbr_iteration_chiffre)
 
     
 
